@@ -1,0 +1,38 @@
+<template name="Poker">
+
+  <paper-icon-button id="sub-menu" icon="more-vert"></paper-icon-button>
+  <nav class="sub-menu">
+    <ul>
+      <li><a href="#session-info" class="session-info">Session info</a></li>
+      <li><a href="/sessions">Leave session</a></li>
+    </ul>
+  </nav>
+
+  <section class="poker main">
+
+    <div id="card">{{pokerValue}}</div>
+
+    <paper-slider min="0" max="14" value="0" snaps></paper-slider>
+
+
+    <ul class="participants">
+      <li class="done"><div class="img"></div> Bill Gates</li>
+      <li class="thinking"><div class="img"></div> Mark Zuckerberg</li>
+      <li class="thinking"><div class="img"></div> Tom Jerry</li>
+      <li class="done"><div class="img"></div> Nellie Lawnroad</li>
+    </ul>
+
+    <button type="button" name="change" class="change">Change card</button>
+
+    <div id="session-info">
+      <h3>{{name}}</h3>
+      <dl>
+        <dt>Moderator:</dt> <dd>{{moderator}}</dd>
+        <dt>Participants:</dt> <dd>{{#each participants}}{{this}}{{/each}}</dd>
+        <dt>Type:</dt> <dd>{{type}}</dd>
+        <dt>Created:</dt> <dd>{{created}}</dd>
+      </dl>
+    </div>
+
+  </section>
+</template>

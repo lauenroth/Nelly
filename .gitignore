@@ -1,2 +1,2 @@
-.meteor/local
-.meteor/meteorite
+app/.meteor/local
+app/public/bower_components

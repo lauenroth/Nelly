@@ -1,0 +1,67 @@
+<template name="Dashboard">
+
+  <section class="main dashboard">
+
+    <paper-card animated-shadow heading="Poker Sessions">
+
+      <paper-icon-button class="right" icon="add" id="add-session"></paper-icon-button>
+
+      <div class="card-content">
+
+        {{#if hasSessions}}
+        <ul class="sessions">
+          {{#each currentSessions}}
+          <li><a href="/poker/{{_id}}">{{name}}</a></li>
+          {{/each}}
+        </ul>
+        {{else}}
+        <p>There are currently no sessions.</p>
+        {{/if}}
+
+      </div>
+
+    </paper-card>
+
+    <paper-card heading="Test">
+
+      <div class="card-content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+
+    </paper-card>
+
+    <paper-card heading="Test">
+
+      <div class="card-content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+
+      <div class="card-actions">
+        <paper-icon-button icon="favorite"></paper-icon-button>
+        <paper-icon-button icon="delete"></paper-icon-button>
+        <paper-icon-button icon="thumb-up"></paper-icon-button>
+      </div>
+
+    </paper-card>
+
+    <paper-card heading="Test">
+
+      <div class="card-content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+
+    </paper-card>
+
+    <paper-card heading="Test">
+
+      <div class="card-content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+
+    </paper-card>
+
+    {{> newSession}}
+
+  </section>
+
+</template>

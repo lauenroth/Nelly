@@ -1,0 +1,20 @@
+<template name="Sessions">
+
+  <section class="main sessions">
+
+    {{#if hasSessions}}
+    <ul class="sessions">
+      {{#each currentSessions}}
+      <li><a href="/poker/{{_id}}">{{name}}</a></li>
+      {{/each}}
+    </ul>
+    {{else}}
+    <p>There are currently no sessions.</p>
+    {{/if}}
+
+    <paper-icon-button class="add" icon="add" alt="add"></paper-icon-button>
+
+    {{> newSession}}
+
+  </section>
+</template>

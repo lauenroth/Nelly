@@ -1,0 +1,36 @@
+/*****************************************************************************/
+/* Dashboard: Style */
+/*****************************************************************************/
+section.dashboard {
+  padding: 65px 20px 20px;
+
+  paper-card {
+    color: #000;
+    display: block;
+    margin: 20px auto;
+    width: 100%;
+
+    .right {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+    }
+
+  }
+
+  ul.sessions {
+    margin: 0 0 20px;
+    padding: 0;
+
+    li {
+      list-style: none;
+    }
+    a {
+      color: #000;
+      display: block;
+      padding: 10px 0;
+      text-decoration: none;
+    }
+  }
+
+}

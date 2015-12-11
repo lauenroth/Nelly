@@ -1,0 +1,24 @@
+<template name="MasterLayout">
+  <input type="checkbox" id="show-menu">
+  {{> Menu}}
+  <main>
+
+    <header class="main">
+      {{#if currentUser}}
+      <label for="show-menu"><paper-icon-button icon="menu"></paper-icon-button></label>
+      {{/if}}
+      <div class="title">{{title}}</div>
+    </header>
+
+    {{#if currentUser}}
+
+    {{> yield}}
+
+    {{else}}
+
+    {{> Login}}
+
+    {{/if}}
+
+  </main>
+</template>

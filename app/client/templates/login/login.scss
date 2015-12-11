@@ -1,0 +1,40 @@
+/*****************************************************************************/
+/* Login: Style */
+/*****************************************************************************/
+.login {
+  margin: 0 auto;
+  max-width: 450px;
+
+  paper-input {
+    padding: 0 10px;
+    transition: .3s;
+  }
+
+  #name {
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  #sign-up {
+    margin: 20px 0;
+    text-align: center;
+
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+  }
+
+  &.sign-up {
+
+    #name {
+      height: auto;
+      opacity: 1;
+      visibility: visible;
+    }
+
+  }
+
+}
