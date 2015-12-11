@@ -25,13 +25,15 @@
     <button type="button" name="change" class="change">Change card</button>
 
     <div id="session-info">
-      <h3>{{name}}</h3>
-      <dl>
-        <dt>Moderator:</dt> <dd>{{moderator}}</dd>
-        <dt>Participants:</dt> <dd>{{#each participants}}{{this}}{{/each}}</dd>
-        <dt>Type:</dt> <dd>{{type}}</dd>
-        <dt>Created:</dt> <dd>{{created}}</dd>
-      </dl>
+      <div class="content">
+        <h3>{{name}}</h3>
+        <dl>
+          <dt>Moderator:</dt> <dd>{{moderator}}</dd>
+          <dt>Participants:</dt> <dd>{{#each participants}}{{this}}{{/each}}</dd>
+          <dt>Type:</dt> <dd>{{type}}</dd>
+          <dt>Created:</dt> <dd>{{created}}</dd>
+        </dl>
+      </div>
     </div>
 
   </section>

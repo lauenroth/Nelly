@@ -149,22 +149,35 @@
 }
 
 #session-info {
-  background-color: rgba(255, 255, 255, .95);
-  bottom: -100%;
-  color: #000;
+  background-color: rgba(0, 0, 0, .3);
+  bottom: 0;
   left: 0;
   opacity: 0;
-  padding: 20px 20px 0;
   position: absolute;
+  right: 0;
+  top: 0;
   transition: .2s;
   visibility: hidden;
-  width: 100%;
   z-index: 100;
 
   &.show {
-    bottom: 0;
     opacity: 1;
     visibility: visible;
+
+    .content {
+      bottom: 0;
+    }
+  }
+
+  .content {
+    background-color: rgba(255, 255, 255, .95);
+    bottom: -100%;
+    color: #000;
+    left: 0;
+    padding: 20px 20px 0;
+    position: absolute;
+    transition: .2s;
+    width: 100%;
   }
 
   h3 {

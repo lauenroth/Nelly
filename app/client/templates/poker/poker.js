@@ -16,6 +16,10 @@ Template.Poker.events({
     $('#session-info').addClass('show');
   },
 
+  'click #session-info': function() {
+    $('#session-info').removeClass('show');
+  },
+
   'click #card': function() {
     $('section.poker').addClass('chosen');
   },
