@@ -26,3 +26,4 @@ accounts-password       # Allow accounts with password
 accounts-ui
 
 hammer:hammer           # Hammer.js Touch library
+momentjs:moment         # Date and time handling library

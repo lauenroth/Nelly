@@ -28,10 +28,10 @@
       <div class="content">
         <h3>{{name}}</h3>
         <dl>
-          <dt>Moderator:</dt> <dd>{{moderator}}</dd>
-          <dt>Participants:</dt> <dd>{{#each participants}}{{this}}{{/each}}</dd>
+          <dt>Moderator:</dt> <dd>{{userName moderator}}</dd>
+          <dt>Participants:</dt> <dd>{{#each participants}}{{userName this}}{{/each}}</dd>
           <dt>Type:</dt> <dd>{{type}}</dd>
-          <dt>Created:</dt> <dd>{{created}}</dd>
+          <dt>Created:</dt> <dd>{{dateTimeFormat created}}</dd>
         </dl>
       </div>
     </div>
