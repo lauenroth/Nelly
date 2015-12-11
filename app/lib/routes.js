@@ -5,7 +5,14 @@ Router.configure({
 });
 
 
-Router.route('/', {name: 'dashboard'});
+Router.route('/', {
+  name: 'dashboard',
+  data: function() {
+    // no dashboard for now -> go to poker session overview
+    Router.go('sessions');
+  }
+});
+
 Router.route('tasks');
 Router.route('projects');
 Router.route('sessions');
