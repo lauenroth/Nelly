@@ -1,0 +1,2 @@
+# scrum
+Poker planning, retrospective
