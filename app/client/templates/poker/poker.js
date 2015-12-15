@@ -88,7 +88,7 @@ Template.Poker.onCreated(function () {
   let pokerSession = this.data;
 
   // make sure the user is added to the poker session
-  if (this.data.moderator !== Meteor.userId()) {
+  if (this.data.moderator !== Meteor.userId() || this.data.participants.indexOf(Meteor.userId()) !== -1) {
 
     Sessions.update({_id: this.data._id}, {$addToSet: {participants: Meteor.userId()}});
 
