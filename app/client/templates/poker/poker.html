@@ -5,6 +5,7 @@
     <ul>
       <li><a href="#session-info" class="session-info">Session info</a></li>
       {{#if isModerator}}
+      <!-- <li><a href="#kick" class="kick">Kick participants</a></li> -->
       <li><a href="#reset" class="reset">Reset session</a></li>
       <li><a href="/sessions" class="close">Close session</a></li>
       {{else}}
@@ -23,11 +24,12 @@
 
     <paper-slider min="0" max="14" value="0" snaps></paper-slider>
 
-
-    <ul class="participants">
+    <ul class="participants{{#if everybodyPlayed}} all-played{{/if}}">
       {{#each estimates}}
         <li class="{{#if isThinking estimate}}thinking{{else}}done{{/if}}">
-          <div class="img"><!--{{pokerValue estimate}}--></div>
+          <div class="img">
+              <span class="estimate">{{pokerValue estimate}}</span>
+          </div>
           {{userName user}}
         </li>
       {{/each}}

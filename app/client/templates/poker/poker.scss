@@ -106,6 +106,10 @@
     transition: .5s;
     visibility: hidden;
 
+    &.all-played .estimate {
+      opacity: 1;
+    }
+
     li {
       background: #fff;
       color: #07182F;
@@ -161,6 +165,11 @@
         text-align: center;
         width: 50px;
       }
+
+      .estimate {
+        opacity: 0;
+        transition: .2s;
+      }
     }
   }
 
@@ -169,16 +178,18 @@
 #session-info {
   background-color: rgba(0, 0, 0, .3);
   bottom: 0;
+  display: none;
   left: 0;
   opacity: 0;
   position: absolute;
   right: 0;
   top: 0;
-  transition: .2s;
+  transition: opacity .2s, visibility .2s;
   visibility: hidden;
   z-index: 110;
 
   &.show {
+    display: block;
     opacity: 1;
     visibility: visible;
 

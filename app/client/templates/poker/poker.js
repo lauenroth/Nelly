@@ -57,8 +57,7 @@ Template.Poker.helpers({
   },
 
   pokerValue: function(pokerValue) {
-    // pokerValue = pokerValue || Session.get('pokerValue');
-    if (!pokerValue) pokerValue = Session.get('pokerValue') || 0;
+    if (pokerValue === undefined) pokerValue = Session.get('pokerValue') || 0;
     let pokerValues = [0, '½', 1, '1½', 2, 3, 5, 8, 13, 20, 40, 100, '∞', '?', 'break'];
     // pokerValues = [0, 1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, '∞', '?', 'break'];
     return pokerValues[pokerValue];
@@ -70,7 +69,13 @@ Template.Poker.helpers({
 
   isThinking: function(estimate) {
     return estimate === '?';
-  }
+  },
+
+  everybodyPlayed: function() {
+
+    return (Estimates.find({session: this._id, estimate: '?'}).fetch().length === 0);
+
+  },
 
 });
 
