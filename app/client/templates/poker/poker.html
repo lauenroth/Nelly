@@ -4,22 +4,33 @@
   <nav class="sub-menu">
     <ul>
       <li><a href="#session-info" class="session-info">Session info</a></li>
+      {{#if isModerator}}
+      <li><a href="#reset" class="reset">Reset session</a></li>
+      <li><a href="/sessions" class="close">Close session</a></li>
+      {{else}}
       <li><a href="/sessions">Leave session</a></li>
+      {{/if}}
     </ul>
   </nav>
 
   <section class="poker main">
 
-    <div id="card">{{pokerValue}}</div>
+    <div id="card">
+      <div class="top">{{pokerValue}}</div>
+      {{pokerValue}}
+      <div class="bottom">{{pokerValue}}</div>
+    </div>
 
     <paper-slider min="0" max="14" value="0" snaps></paper-slider>
 
 
     <ul class="participants">
-      <li class="done"><div class="img"></div> Bill Gates</li>
-      <li class="thinking"><div class="img"></div> Mark Zuckerberg</li>
-      <li class="thinking"><div class="img"></div> Tom Jerry</li>
-      <li class="done"><div class="img"></div> Nellie Lawnroad</li>
+      {{#each estimates}}
+        <li class="{{#if isThinking estimate}}thinking{{else}}done{{/if}}">
+          <div class="img"><!--{{pokerValue estimate}}--></div>
+          {{userName user}}
+        </li>
+      {{/each}}
     </ul>
 
     <button type="button" name="change" class="change">Change card</button>
@@ -29,7 +40,13 @@
         <h3>{{name}}</h3>
         <dl>
           <dt>Moderator:</dt> <dd>{{userName moderator}}</dd>
-          <dt>Participants:</dt> <dd>{{#each participants}}{{userName this}}{{/each}}</dd>
+          <dt>Participants:</dt> <dd>
+            <ul>
+            {{#each participants}}
+              <li>{{userName this}}</li>
+            {{/each}}
+            </ul>
+          </dd>
           <dt>Type:</dt> <dd>{{type}}</dd>
           <dt>Created:</dt> <dd>{{dateTimeFormat created}}</dd>
         </dl>

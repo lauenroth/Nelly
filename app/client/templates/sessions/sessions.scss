@@ -3,6 +3,17 @@
 /*****************************************************************************/
 section.sessions {
 
+  .no-sessions {
+    background: lighten(#07182F, 5);
+    border-radius: 4px;
+    color: #def;
+    margin: 200px auto 20px;
+    padding: 20px;
+    text-align: center;
+    width: 300px;
+    max-width: 80%;
+  }
+
   ul {
     padding: 0;
   }

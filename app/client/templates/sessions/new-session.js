@@ -16,8 +16,13 @@ Template.newSession.events({
       participants: [],
       type: 'public',
     };
+
+    if ($('#session-autojoin').prop('checked')) {
+      newSession.participants = [Meteor.userId()];
+    }
+
     Sessions.insert(newSession);
-    
+
     $('form.new-session').removeClass('show');
     inputField.val('');
   },
