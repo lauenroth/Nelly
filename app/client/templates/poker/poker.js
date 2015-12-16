@@ -131,4 +131,6 @@ Template.Poker.onRendered(function () {
 });
 
 Template.Poker.onDestroyed(function () {
+  let estimate = Estimates.findOne({session: this.data._id, user: Meteor.userId()});
+  Estimates.remove({_id: estimate._id});
 });
