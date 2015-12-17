@@ -14,8 +14,9 @@
     </ul>
   </nav>
 
-  <section class="poker main">
+  <section class="poker main{{#unless isParticipant}} observer{{/unless}}{{#unless userIsThinking}} chosen{{/unless}}{{#if everybodyPlayed}} all-played{{/if}}">
 
+    {{#if isParticipant}}
     <div id="card">
       <div class="top">{{pokerValue}}</div>
       {{pokerValue}}
@@ -23,8 +24,9 @@
     </div>
 
     <paper-slider min="0" max="14" value="0" snaps></paper-slider>
+    {{/if}}
 
-    <ul class="participants{{#if everybodyPlayed}} all-played{{/if}}">
+    <ul class="participants">
       {{#each estimates}}
         <li class="{{#if isThinking estimate}}thinking{{else}}done{{/if}}">
           <div class="img">
@@ -35,7 +37,11 @@
       {{/each}}
     </ul>
 
+    <div class="average">{{pokerValue averageValue}}</div>
+
+    {{#if isParticipant}}
     <button type="button" name="change" class="change">Change card</button>
+    {{/if}}
 
     <div id="session-info">
       <div class="content">

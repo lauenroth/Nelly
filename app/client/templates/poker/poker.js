@@ -21,13 +21,11 @@ Template.Poker.events({
   },
 
   'click #card': function() {
-    $('section.poker').addClass('chosen');
     Estimates.update({_id: Session.get('currentEstimate')}, {$set: {estimate: Session.get('pokerValue')} });
   },
 
   'click button.change': function() {
     $('button.change').blur();
-    $('section.poker').removeClass('chosen');
     Estimates.update({_id: Session.get('currentEstimate')}, {$set: {estimate: '?'} });
   },
 
@@ -67,15 +65,35 @@ Template.Poker.helpers({
     return (this.moderator === Meteor.userId());
   },
 
+  userIsThinking: function() {
+    let estimate = Estimates.findOne({session: this._id, user: Meteor.userId()});
+    return estimate && estimate.estimate === '?';
+  },
+
   isThinking: function(estimate) {
     return estimate === '?';
   },
 
   everybodyPlayed: function() {
-
     return (Estimates.find({session: this._id, estimate: '?'}).fetch().length === 0);
-
   },
+
+  isParticipant: function() {
+    return !!Estimates.findOne({session: this._id, user: Meteor.userId()});
+  },
+
+  averageValue: function() {
+    let estimates = Estimates.find({session: this._id});
+    let participants = 0;
+    let sum = 0;
+    estimates.forEach(function(estimate) {
+      if (estimate.estimate !== '?') {
+        participants++;
+        sum += estimate.estimate;
+      }
+    });
+    return Math.round(sum / participants);
+  }
 
 });
 
