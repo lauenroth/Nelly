@@ -4,14 +4,24 @@
 
     <form>
 
-      <paper-input label="Name" id="name"></paper-input>
-      <paper-input label="E-mail" id="email" type="email"></paper-input>
-      <paper-input label="Password" type="password" id="password"></paper-input>
+      <div class="name">
+        <label for="name">Name</label>
+        <input type="text" id="name">
+      </div>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" required>
+
       <button type="submit">Sign in</button>
 
     </form>
 
     <p id="sign-up"><a href="#sign-up">Create new account</a></p>
+
+    <div class="error"></div>
 
   </section>
 

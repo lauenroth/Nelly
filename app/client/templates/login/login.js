@@ -5,12 +5,16 @@ Template.Login.events({
   'submit form': function(e) {
     e.preventDefault();
 
-    let email = $('#email input').val();
-    let password = $('#password input').val();
+    let email = $('#email').val();
+    let password = $('#password').val();
+    let button = $('button');
+    let errorDiv = $('.error');
 
     if ($('section.login').hasClass('sign-up')) {
 
-      let name = $('#name input').val();
+      button.text('Creating your account...');
+
+      let name = $('#name').val();
       let user = {
         email: email,
         password: password,
@@ -20,14 +24,29 @@ Template.Login.events({
       };
 
       Accounts.createUser(user, function(error) {
-        if (error) alert(error.reason);
+        button.text('Create new account');
+        if (error) {
+          errorDiv.text(error.reason).addClass('show');
+          setTimeout(function() {
+            errorDiv.removeClass('show');
+          }, 5000);
+        }
       });
 
     }
+
     else {
 
+      button.text('Signing you in...');
+
       Meteor.loginWithPassword(email, password, function(error) {
-        if (error) alert(error.reason);
+        button.text('Sign in');
+        if (error) {
+          errorDiv.text(error.reason).addClass('show');
+          setTimeout(function() {
+            errorDiv.removeClass('show');
+          }, 5000);
+        }
       });
 
     }
