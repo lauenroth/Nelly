@@ -27,3 +27,4 @@ accounts-ui
 
 hammer:hammer           # Hammer.js Touch library
 momentjs:moment         # Date and time handling library
+swiper:swiper           # mobile touch slider

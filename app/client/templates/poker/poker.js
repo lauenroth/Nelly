@@ -20,8 +20,9 @@ Template.Poker.events({
     $('#session-info').removeClass('show');
   },
 
-  'click #card': function() {
-    Estimates.update({_id: Session.get('currentEstimate')}, {$set: {estimate: Session.get('pokerValue')} });
+  'click .card': function(e) {
+    let newEstimate = $(e.target).data('value')
+    Estimates.update({_id: Session.get('currentEstimate')}, {$set: {estimate: newEstimate} });
   },
 
   'click button.change': function() {
@@ -87,12 +88,14 @@ Template.Poker.helpers({
     let participants = 0;
     let sum = 0;
     estimates.forEach(function(estimate) {
-      if (estimate.estimate !== '?') {
+      if (estimate.estimate !== '?' && estimate.estimate !== 'break' && estimate.estimate !== '∞') {
         participants++;
         sum += estimate.estimate;
       }
     });
-    return Math.round(sum / participants);
+    let average = Math.round( (sum / participants) * 2) / 2;
+
+    return average % 1 !== 0 ? average.toFixed(1) : average;
   }
 
 });
@@ -129,23 +132,15 @@ Template.Poker.onCreated(function () {
 });
 
 Template.Poker.onRendered(function () {
-  $('paper-slider').on('immediate-value-change', function() {
-    Session.set('pokerValue', $('#sliderBar')[0].value);
 
+  var swiper = new Swiper('.swiper-container', {
+    slidesPerView: 'auto',
+    centeredSlides: true,
+    spaceBetween: 30,
+    pagination: '.swiper-pagination',
+    paginationClickable: true,
   });
-  $('paper-slider').on('change', function() {
-    Session.set('pokerValue', $('#sliderBar')[0].value);
-  });
 
-  $('#card').on('swipe', function(e) {
-    console.log(e);
-  })
-
-  // var hammertime = new Hammer(document.getElementById('card'), {});
-  // hammertime.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
-  // hammertime.on('swipe', function(e) {
-  //   console.log(e)
-  // });
 });
 
 Template.Poker.onDestroyed(function () {
