@@ -9,13 +9,38 @@ paper-icon-button.add {
   width: 50px;
 }
 
-paper-input input {
-  color: #fff!important;
-  font-size: 1em!important;
+label.moving {
+  display: block;
+  font-size: 16px;
+  line-height: 16px;
+  opacity: .5;
+  padding: 5px 10px 0;
+  position: relative;
+  top: 30px;
+  transition: .3s;
+  width: 100%;
+
+  &.up {
+    color: #369;
+    font-size: 12px;
+    opacity: 1;
+    top: 0px;
+  }
 }
 
-#checkboxLabel {
-  color: #fff!important;
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  display: block;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #369;
+  color: #fff;
+  font-size: 1em;
+  margin-bottom: 10px;
+  outline: none;
+  padding: 10px;
+  width: 100%;
 }
 
 button {

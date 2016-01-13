@@ -77,6 +77,16 @@ Template.Login.onCreated(function () {
 });
 
 Template.Login.onRendered(function () {
+
+  $('input').on('keyup', function(e) {
+    let input = $(this);
+    if (input.val().length > 0) {
+      input.prev().addClass('up');
+    }
+    else {
+      input.prev().removeClass('up');
+    }
+  });
 });
 
 Template.Login.onDestroyed(function () {

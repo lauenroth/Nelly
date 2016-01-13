@@ -47,6 +47,16 @@ Template.newSession.onCreated(function () {
 });
 
 Template.newSession.onRendered(function () {
+  let movingLabel = $('label.moving');
+  let sessionName = $('#session-name');
+  sessionName.on('keyup', function() {
+    if (sessionName.val().length > 0) {
+      movingLabel.addClass('up');
+    }
+    else {
+      movingLabel.removeClass('up');
+    }
+  });
 });
 
 Template.newSession.onDestroyed(function () {

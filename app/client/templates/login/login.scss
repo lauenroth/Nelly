@@ -9,32 +9,6 @@
     margin-top: 20px;
   }
 
-  label {
-    color: #acf;
-    display: block;
-    font-size: 12px;
-    padding: 0 10px;
-  }
-  input {
-    background-color: transparent;
-    border: none;
-    border-bottom: 1px solid #acf;
-    color: #fff;
-    font-size: 1em;
-    margin-bottom: 10px;
-    padding: 10px;
-    width: 100%;
-
-    &:focus {
-      outline: none;
-    }
-  }
-
-  paper-input {
-    padding: 0 10px;
-    transition: .3s;
-  }
-
   .name {
     height: 0;
     opacity: 0;

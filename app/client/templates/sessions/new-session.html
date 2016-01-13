@@ -5,9 +5,16 @@
     <paper-icon-button icon="close" id="close"></paper-icon-button>
     <h2>Create new Session</h2>
 
-    <paper-input label="Session name" id="session-name"></paper-input>
+    <div>
+      <label for="session-name" class="moving">Session name</label>
+      <input type="text" id="session-name">
+    </div>
 
-    <paper-checkbox id="session-autojoin">Join session as participant</paper-checkbox>
+    <div>
+      <label>
+        <input type="checkbox" id="join"> Join session as participant
+      </label>
+    </div>
 
     <button type="submit">Create Session</button>
 
