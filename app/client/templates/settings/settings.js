@@ -8,6 +8,9 @@ Template.Settings.events({
 /* Settings: Helpers */
 /*****************************************************************************/
 Template.Settings.helpers({
+  name: function() {
+    return Meteor.user().profile.name;
+  }
 });
 
 /*****************************************************************************/
@@ -18,6 +21,7 @@ Template.Settings.onCreated(function () {
 });
 
 Template.Settings.onRendered(function () {
+  movingLabel($('#name'));
 });
 
 Template.Settings.onDestroyed(function () {

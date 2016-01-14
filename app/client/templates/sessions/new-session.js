@@ -5,7 +5,7 @@ Template.newSession.events({
 
   'submit form': function(e) {
     e.preventDefault();
-    let inputField = $('#session-name input');
+    let inputField = $('#session-name');
     let sessionName = inputField.val();
     sessionName = sessionName || (Meteor.user().profile.name.split(' ')[0]) + '\'s session';
 
@@ -17,7 +17,7 @@ Template.newSession.events({
       type: 'public',
     };
 
-    if ($('#session-autojoin').prop('checked')) {
+    if ($('#join').prop('checked')) {
       newSession.participants = [Meteor.userId()];
     }
 
@@ -47,16 +47,7 @@ Template.newSession.onCreated(function () {
 });
 
 Template.newSession.onRendered(function () {
-  let movingLabel = $('label.moving');
-  let sessionName = $('#session-name');
-  sessionName.on('keyup', function() {
-    if (sessionName.val().length > 0) {
-      movingLabel.addClass('up');
-    }
-    else {
-      movingLabel.removeClass('up');
-    }
-  });
+  movingLabel($('#session-name'));
 });
 
 Template.newSession.onDestroyed(function () {

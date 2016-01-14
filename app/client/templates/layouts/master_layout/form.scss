@@ -29,7 +29,8 @@ label.moving {
 }
 
 label.checkbox {
-  background-color: #fff;
+  background-color: #999;
+  color: transparent;
   border-radius: 2px;
   display: inline-block;
   font-size: 18px;
@@ -43,7 +44,8 @@ input[type="checkbox"] {
   display: none;
 
   &:checked + label.checkbox {
-    background-color: rgba(5, 57, 96, 0.95);
+    background-color: #fff;
+    color: #053960;
   }
 }
 
