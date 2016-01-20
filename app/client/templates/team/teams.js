@@ -10,7 +10,7 @@ Template.teams.events({
   'click li': function() {
     let teamName = this.name;
     confirmDialog('Do you wanna join the team ' + teamName + '?', function() {
-      info('You joined the team ' + teamName + '!');
+      info('You have joined \'' + teamName + '\'!');
       $('form.teams').removeClass('show');
     });
   },
@@ -25,6 +25,10 @@ Template.teams.helpers({
   teams: function() {
     return Teams.find();
   },
+
+  hasTeams: function() {
+    return Teams.find().count() > 0;
+  }
 
 });
 

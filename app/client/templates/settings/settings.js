@@ -3,10 +3,9 @@
 /*****************************************************************************/
 Template.Settings.events({
 
-  'click a.change-password': function() {
-    $('a.change-password').hide();
+  'click p.change-password': function() {
+    $('p.change-password').hide();
     $('div.change-password').fadeIn(200);
-    $('#current-password').focus();
   },
 
   'submit form': function(e) {
@@ -17,30 +16,55 @@ Template.Settings.events({
     };
 
     let newPassword = $('#new-password').val();
-    if (newPassword.length > 0) {
-      let currentPassword = $('#current-password').val();
+    let currentPassword = $('#current-password').val();
+
+    if (currentPassword.length > 0 || newPassword.length > 0) {
+
       let passwordConfirmation = $('#confirm-password').val();
-      if (newPassword !== passwordConfirmation) {
+
+      if (currentPassword.length === 0 || newPassword.length === 0 || passwordConfirmation.length === 0) {
+        error('Please fill out all password fields if you wanna change your password.');
+      }
+
+      else if (newPassword !== passwordConfirmation) {
         error('Oups, you entered a different password as confirmation!');
         $('#confirm-password').select();
       }
+
+      else {
+        Accounts.changePassword(currentPassword, newPassword, function(err) {
+          if (err) {
+            error(err.reason);
+          }
+          else {
+            info('Your password has been updated.');
+          }
+        });
+      }
+
+    }
+    else {
+      Meteor.users.update(
+        {_id: Meteor.userId()},
+        {
+          $set: {
+            'profile.name': profile.name,
+            // 'emails.0.address': profile.email,
+          }
+        }, function(err) {
+
+          if (err) {
+            error(err.reason);
+          }
+          else {
+            info('Your profile has been updated');
+          }
+
+        }
+      );
     }
 
-    Meteor.users.update(
-      {_id: Meteor.userId()},
-      {
-        $set: {
-          'profile.name': profile.name,
-          'emails.0.address': profile.email,
-        }
-      }, function(errorMessage) {
-
-        if (errorMessage) {
-          error(errorMessage.reason);
-        }
-
-      }
-    );
+    $('.submit').blur();
 
   },
 

@@ -12,11 +12,15 @@ Template.newTeam.events({
     let team = {
       name: $('#team-name').val(),
       isPublic: $('#public').is(':checked'),
+      admins: [Meteor.userId()],
+      members: [Meteor.userId()],
     };
-    Teams.insert(team);
+    team = Teams.insert(team);
+    Accounts.users.update({_id: Meteor.userId()}, {$set: {'profile.currentTeam': team.id} });
     $('form.new-team').removeClass('show');
     $('#team-name').val('');
     $('#public').prop('checked', false);
+    info('The team \'' + team.name + '\' has been created!');
   },
 
 });

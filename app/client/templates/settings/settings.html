@@ -2,16 +2,18 @@
   <section class="main settings">
 
     <form>
-      
+
       <h3>Your Profile</h3>
       <label for="name" class="moving">Your name</label>
       <input type="text" id="name" value="{{ profile.name }}" required>
 
-      <label for="email" class="moving">Your e-mail address</label>
-      <input type="email" id="email" value="{{ profile.email }}" required>
+      <!-- <label for="email" class="moving">Your e-mail address</label>
+      <input type="email" id="email" value="{{ profile.email }}" required> -->
 
 
-      <a href="#" class="change-password">Wanna change your password?</a>
+      <p class="change-password">
+        <a href="#">Wanna change your password?</a>
+      </p>
       <div class="change-password">
         <h3>Change Password</h3>
         <label for="current-password" class="moving">Current Password</label>
@@ -24,7 +26,7 @@
         <input type="password" id="confirm-password">
       </div>
 
-      <button type="submit">Save</button>
+      <button type="submit" class="submit">Save</button>
 
     </form>
 

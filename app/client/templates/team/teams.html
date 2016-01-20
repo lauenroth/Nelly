@@ -6,11 +6,22 @@
 
     <h2>Join a team</h2>
 
+    {{#if hasTeams}}
+
     <ul class="list">
       {{#each teams}}
       <li>{{name}}</li>
       {{/each}}
     </ul>
+
+    {{else}}
+
+    <p class="no-data">
+      Oups, there are no teams yet!<br>
+      Looks like you gotta create one yourself...
+    </p>
+
+    {{/if}}
 
   </form>
 
