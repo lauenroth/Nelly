@@ -4,7 +4,16 @@
 section.settings {
   padding: 10px;
 
-  paper-input {
-    width: 100%;
+  #email {
+    margin-bottom: 40px;
   }
+
+  a.change-password {
+    display: block;
+    margin: 0 10px 40px;
+  }
+  div.change-password {
+    display: none;
+  }
+
 }

@@ -3,7 +3,7 @@
 /*****************************************************************************/
 Template.Sessions.events({
 
-  'click paper-icon-button.add': function() {
+  'click .add': function() {
     $('form.new-session').addClass('show');
     $('#session-name input').focus();
   },

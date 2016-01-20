@@ -174,29 +174,14 @@
   }
 
   .participants {
-    margin: 0 auto;
     max-width: 600px;
     opacity: 0;
-    padding: 20px 20px;
     position: relative;
     transition: .5s;
     visibility: hidden;
     z-index: 20;
 
     li {
-      background: #fff;
-      color: #07182F;
-      border-radius: 4px;
-      list-style: none;
-      line-height: 50px;
-      margin: 0 0 20px;
-      opacity: .5;
-      overflow: hidden;
-      padding: 10px;
-      text-overflow: ellipsis;
-      transition: .3s;
-      white-space: nowrap;
-      width: 100%;
       opacity: .5;
       transform: scale(.9);
 
@@ -208,17 +193,6 @@
         margin-left: 120%;
       }
 
-      // &:nth-child(odd) {
-      //   clear: both;
-      //   float: left;
-      //   margin-left: 10px;
-      // }
-      //
-      // &:nth-child(even) {
-      //   float: right;
-      //   margin-right: 10px;
-      // }
-
       &.thinking {
 
       }
@@ -228,21 +202,6 @@
         transform: scale(1);
       }
 
-      .img {
-        background: #ccc;
-        border: 2px solid #999;
-        border-radius: 100%;
-        float: left;
-        height: 50px;
-        margin-right: 10px;
-        text-align: center;
-        width: 50px;
-      }
-
-      .estimate {
-        opacity: 0;
-        transition: .2s;
-      }
     }
   }
 

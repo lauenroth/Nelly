@@ -1,0 +1,32 @@
+<template name="Team">
+
+  <section class="main team">
+
+    {{#if team }}
+
+    <h2>Members</h2>
+    <ul class="users">
+      <li><div class="img"></div> Nelly</li>
+      <li><div class="img"></div> July</li>
+      <li><div class="img"></div> Anne</li>
+      <li><div class="img"></div> Jonny</li>
+      <li><div class="img"></div> Jonas</li>
+      <li><div class="img"></div> Leonie</li>
+    </ul>
+    {{else}}
+
+    <h2>You are not in a team yet.</h2>
+    <h2>Please join a team or create a new one using the buttons below:</h2>
+
+    {{/if}}
+
+
+    <a href="#" class="create">Create new team</a>
+    <a href="#" class="join">Join a team</a>
+
+  </section>
+
+  {{> teams}}
+  {{> newTeam}}
+
+</template>

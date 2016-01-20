@@ -1,0 +1,56 @@
+#confirm {
+  background: rgba(0,0,0,.9);
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1000;
+
+  p {
+    font-size: 32px;
+    line-height: 50px;
+    padding: 20px;
+  }
+
+  .confirm {
+    bottom: 75px;
+    position: fixed;
+  }
+
+  .cancel {
+    background-color: #822;
+    bottom: 0;
+    position: fixed;
+  }
+
+}
+
+#dialog,
+#error,
+#info {
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  z-index: 1000;
+}
+#dialog {
+  top: 0;
+}
+#error,
+#info {
+  background-color: #822;
+  bottom: -85px;
+  padding: 20px;
+  text-align: center;
+  transition: .3s;
+
+  &.show {
+    bottom: 0;
+  }
+}
+
+#info {
+  background-color: #053960;
+}

@@ -3,7 +3,7 @@
   <section class="main sessions">
 
     {{#if hasSessions}}
-    <ul class="sessions">
+    <ul class="list">
       {{#each currentSessions}}
       <li><a href="/poker/{{_id}}">{{name}}</a></li>
       {{/each}}
@@ -12,7 +12,7 @@
     <p class="no-sessions">There are currently no sessions.</p>
     {{/if}}
 
-    <paper-icon-button class="add" icon="add" alt="add"></paper-icon-button>
+    <img src="/images/ic_add.svg" alt="Add new session" class="add">
 
     {{> newSession}}
 

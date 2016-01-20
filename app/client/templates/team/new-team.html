@@ -1,0 +1,24 @@
+<template name="newTeam">
+
+  <form class="overlay new-team">
+
+    <img src="/images/ic_close.svg" alt="Close" id="close">
+
+    <h2>Create new team</h2>
+
+    <div>
+      <label for="team-name" class="moving">Team name</label>
+      <input type="text" id="team-name" required>
+    </div>
+
+    <div>
+      <input type="checkbox" id="public">
+      <label for="public" class="checkbox">✔</label>
+      <label for="public">Make this team public</label>
+    </div>
+
+    <button type="submit">Create team</button>
+
+  </form>
+
+</template>

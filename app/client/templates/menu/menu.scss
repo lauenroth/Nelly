@@ -35,6 +35,24 @@ nav.main {
   -webkit-overflow-scrolling: touch;
   transition: transform ease-in-out 0.3s, width ease-in-out 0.3s, visibility 0.3s;
 
+  .team {
+    background-color: #e9f3ff;
+    border-bottom: 1px solid #aaa;
+    color: #000;
+    overflow: hidden;
+    padding: 20px;
+    word-wrap: nowrap;
+
+    a {
+      display: inline-block;
+      float: right;
+      font-size: 12px;
+      line-height: 0;
+      min-height: inherit;
+      padding-right: 0;
+    }
+  }
+
   ul {
     margin: 0;
     padding: 0;
@@ -66,9 +84,16 @@ nav.main {
     min-height: 55px;
   }
 
+  .settings {
+    bottom: 55px;
+    border-top: 1px solid #aaa;
+    left: 0;
+    position: fixed;
+    right: 0;
+  }
+
   .logout {
     bottom: 0;
-    border-top: 1px solid #aaa;
     left: 0;
     position: fixed;
     right: 0;
@@ -77,7 +102,7 @@ nav.main {
 }
 
 #scrim {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.5);
   bottom: 0;
   left: 0;
   opacity: 0;

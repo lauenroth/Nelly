@@ -1,0 +1,17 @@
+<template name="teams">
+
+  <form class="overlay teams">
+
+    <img src="/images/ic_close.svg" alt="Close" id="close">
+
+    <h2>Join a team</h2>
+
+    <ul class="list">
+      {{#each teams}}
+      <li>{{name}}</li>
+      {{/each}}
+    </ul>
+
+  </form>
+
+</template>

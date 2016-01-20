@@ -20,6 +20,8 @@ Router.route('sessions');
 
 Router.route('retrospective');
 
+Router.route('team');
+
 Router.route('settings');
 
 Router.route('poker/:id', {

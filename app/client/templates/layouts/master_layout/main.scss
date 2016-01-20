@@ -13,6 +13,14 @@ body {
   overflow: hidden;
 }
 
+a {
+  color: #fff;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
 main {
   left: 0;
   height: 100%;
@@ -131,5 +139,46 @@ nav.sub-menu {
     display: block;
     padding: 20px;
     text-decoration: none;
+  }
+}
+
+
+ul.list {
+  margin: 20px;
+  padding: 0;
+
+  li {
+    background: #fff;
+    color: #07182F;
+    border-radius: 4px;
+    list-style: none;
+    line-height: 50px;
+    margin: 0 0 20px;
+    overflow: hidden;
+    padding: 10px;
+    text-overflow: ellipsis;
+    transition: .3s;
+    white-space: nowrap;
+    width: 100%;
+
+    a {
+      color: #07182F;
+    }
+
+    .img {
+      background: #ccc;
+      border: 2px solid #999;
+      border-radius: 100%;
+      float: left;
+      height: 50px;
+      margin-right: 10px;
+      text-align: center;
+      width: 50px;
+    }
+
+    .estimate {
+      opacity: 0;
+      transition: .2s;
+    }
   }
 }

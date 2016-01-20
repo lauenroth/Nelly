@@ -1,0 +1,36 @@
+/*****************************************************************************/
+/* Team: Style */
+/*****************************************************************************/
+section.team {
+  position: relative;
+
+  h2 {
+    font-weight: normal;
+    line-height: 2em;
+    margin: 20px 20px 40px;
+  }
+
+  .users {
+    margin-bottom: 85px;
+  }
+
+  a.create,
+  a.join {
+    background-color: rgba(5, 57, 96, 0.95);
+    border-top: 1px solid #07182F;
+    bottom: 0;
+    display: block;
+    padding: 20px;
+    position: fixed;
+    right: 0;
+    text-align: center;
+    text-decoration: none;
+    width: 50%;
+  }
+  a.join {
+    border-right: 1px solid #07182F;
+    left: 0;
+    right: auto;
+  }
+
+}
