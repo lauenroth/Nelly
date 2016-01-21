@@ -44,24 +44,34 @@ Template.Settings.events({
 
     }
     else {
-      Meteor.users.update(
-        {_id: Meteor.userId()},
-        {
-          $set: {
-            'profile.name': profile.name,
-            // 'emails.0.address': profile.email,
-          }
-        }, function(err) {
 
-          if (err) {
-            error(err.reason);
-          }
-          else {
-            info('Your profile has been updated');
-          }
+      let currentProfile = Meteor.user().profile;
 
-        }
-      );
+      if (currentProfile.name !== profile.name) {
+
+        Meteor.users.update(
+          {_id: Meteor.userId()},
+          {
+            $set: {
+              'profile.name': profile.name,
+              // 'emails.0.address': profile.email,
+            }
+          }, function(err) {
+
+            if (err) {
+              error(err.reason);
+            }
+            else {
+              info('Your profile has been updated');
+            }
+
+          }
+        );
+      }
+
+      else {
+        info('Well, you haven\'t changed anything...');
+      }
     }
 
     $('.submit').blur();

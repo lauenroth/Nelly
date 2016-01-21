@@ -19,9 +19,16 @@ Template.Team.events({
 Template.Team.helpers({
 
   currentTeam: function() {
-    let profile =  Meteor.user().profile;
-    if (profile.currentTeam) return Teams.findOne({_id: profile.currentTeam});
-    return false;
+    return Session.get('currentTeam');
+  },
+
+  members: function() {
+    let members = [];
+    let currentTeam = Session.get('currentTeam');
+    currentTeam.members.forEach(function(memberId) {
+      members.push(Meteor.users.findOne({_id: memberId}));
+    });
+    return members;
   },
 
 });
@@ -30,7 +37,16 @@ Template.Team.helpers({
 /* Team: Lifecycle Hooks */
 /*****************************************************************************/
 Template.Team.onCreated(function () {
-  Session.set('title', 'Join a team');
+
+  let currentTeam = false;
+  let profile =  Meteor.user().profile;
+  if (profile.currentTeam) {
+    currentTeam = Teams.findOne({_id: profile.currentTeam});
+  }
+  Session.set('currentTeam', currentTeam);
+
+  let title = Session.get('currentTeam') ? Session.get('currentTeam').name : 'Join a team';
+  Session.set('title', title);
 });
 
 Template.Team.onRendered(function () {

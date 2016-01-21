@@ -5,13 +5,10 @@
     {{#if currentTeam }}
 
     <h2>Members</h2>
-    <ul class="users">
-      <li><div class="img"></div> Nelly</li>
-      <li><div class="img"></div> July</li>
-      <li><div class="img"></div> Anne</li>
-      <li><div class="img"></div> Jonny</li>
-      <li><div class="img"></div> Jonas</li>
-      <li><div class="img"></div> Leonie</li>
+    <ul class="list">
+      {{#each members}}
+        <li><div class="img"></div> {{profile.name}}</li>
+      {{/each}}
     </ul>
 
     {{else}}
