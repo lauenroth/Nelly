@@ -6,10 +6,11 @@
     <ul>
       {{#if isAdmin}}
       <li><a href="#" class="edit">Edit team</a></li>
+      <li><a href="#" class="edit">Send team invite</a></li>
       {{/if}}
+      <li><a href="#" class="leave">Leave team</a></li>
       <li><a href="#" class="create">Create team</a></li>
       <li><a href="#" class="join">Join another team</a></li>
-      <li><a href="#" class="leave">Leave team</a></li>
     </ul>
   </nav>
 
@@ -30,17 +31,6 @@
         </li>
       {{/each}}
     </ul>
-
-      {{#if isAdmin}}
-
-      <h2>Admin</h2>
-
-      <p class="buttons">
-        <a href="#" class="right">???</a>
-        <a href="#" class="left invite">Send invite</a>
-      </p>
-
-      {{/if}}
 
     {{else}}
 
