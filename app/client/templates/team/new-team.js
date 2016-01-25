@@ -16,11 +16,12 @@ Template.newTeam.events({
       members: [Meteor.userId()],
     };
     team = Teams.insert(team);
-    Accounts.users.update({_id: Meteor.userId()}, {$set: {'profile.currentTeam': team.id} });
+    Accounts.users.update({_id: Meteor.userId()}, {$set: {'profile.currentTeam': team._id} });
     $('form.new-team').removeClass('show');
     $('#team-name').val('');
     $('#public').prop('checked', false);
     info('The team \'' + team.name + '\' has been created!');
+    Session.set('currentTeam', team);
   },
 
 });

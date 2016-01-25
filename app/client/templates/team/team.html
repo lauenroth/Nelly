@@ -1,5 +1,18 @@
 <template name="Team">
 
+  <img src="/images/ic_submenu.svg" alt="Show submenu" id="sub-menu">
+
+  <nav class="sub-menu">
+    <ul>
+      {{#if isAdmin}}
+      <li><a href="#" class="edit">Edit team</a></li>
+      {{/if}}
+      <li><a href="#" class="create">Create team</a></li>
+      <li><a href="#" class="join">Join another team</a></li>
+      <li><a href="#" class="leave">Leave team</a></li>
+    </ul>
+  </nav>
+
   <section class="main team">
 
     {{#if currentTeam }}
@@ -7,28 +20,47 @@
     <h2>Members</h2>
     <ul class="list">
       {{#each members}}
-        <li><div class="img"></div> {{profile.name}}</li>
+        <li>
+          <div class="img"></div>
+          {{#if memberIsAdmin }}
+            <strong>{{user.profile.name}}</strong>
+          {{else}}
+            {{user.profile.name}}
+          {{/if}}
+        </li>
       {{/each}}
     </ul>
+
+      {{#if isAdmin}}
+
+      <h2>Admin</h2>
+
+      <p class="buttons">
+        <a href="#" class="right">???</a>
+        <a href="#" class="left invite">Send invite</a>
+      </p>
+
+      {{/if}}
 
     {{else}}
 
     <p class="no-data">
       You are not in a team yet.<br>
-      Please join a team or create a new one using the buttons below:
+      Please join or create a team.
     </p>
-    <!-- <h2>You are not in a team yet.</h2>
-    <h2>Please join a team or create a new one using the buttons below:</h2> -->
+
+    <p class="buttons">
+      <a href="#" class="right create">Create a team</a>
+      <a href="#" class="left join">Join a team</a>
+    </p>
 
     {{/if}}
-
-
-    <a href="#" class="create">Create a team</a>
-    <a href="#" class="join">Join a team</a>
 
   </section>
 
   {{> teams}}
   {{> newTeam}}
+
+  {{setPageTitle}}
 
 </template>

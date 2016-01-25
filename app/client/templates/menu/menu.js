@@ -11,3 +11,11 @@ Template.Menu.events({
   }
 
 });
+
+Template.Menu.helpers({
+
+  teamName: function() {
+    return Session.get('currentTeam') ? Session.get('currentTeam').name : 'Join a team';
+  },
+
+});

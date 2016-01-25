@@ -96,6 +96,25 @@ button {
   }
 }
 
+.buttons .left,
+.buttons .right {
+  background-color: rgba(5, 57, 96, 0.95);
+  border-top: 1px solid #07182F;
+  bottom: 0;
+  display: block;
+  padding: 20px;
+  position: fixed;
+  right: 0;
+  text-align: center;
+  text-decoration: none;
+  width: 50%;
+}
+.buttons .left {
+  border-right: 1px solid #07182F;
+  left: 0;
+  right: auto;
+}
+
 form.overlay {
   background-color: rgba(20, 20, 20, .99);
   height: 100%;
@@ -105,7 +124,7 @@ form.overlay {
   right: 0;
   top: 100%;
   transition: .3s;
-  z-index: 100;
+  z-index: 110;
 
   &.show {
     opacity: 1;

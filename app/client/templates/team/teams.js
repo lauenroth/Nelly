@@ -8,9 +8,13 @@ Template.teams.events({
   },
 
   'click li': function() {
-    let teamName = this.name;
-    confirmDialog('Do you wanna join the team ' + teamName + '?', function() {
-      info('You have joined \'' + teamName + '\'!');
+    let team = this;
+
+    confirmDialog('Do you wanna join the team ' + team.name + '?', function() {
+      Teams.update({_id: team._id}, {$addToSet: {members: Meteor.userId()}});
+      Accounts.users.update({_id: Meteor.userId()}, {$set: {'profile.currentTeam': team._id} });
+      Session.set('currentTeam', team);
+      info('You have joined \'' + team.name + '\'!');
       $('form.teams').removeClass('show');
     });
   },
@@ -23,7 +27,7 @@ Template.teams.events({
 Template.teams.helpers({
 
   teams: function() {
-    return Teams.find();
+    return Teams.find({}, {sort: {name: 1}});
   },
 
   hasTeams: function() {

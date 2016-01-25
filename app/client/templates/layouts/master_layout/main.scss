@@ -2,6 +2,9 @@
   font-family: Helvetica, Verdana, sans-serif;
   box-sizing: border-box;
   user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 body {
@@ -87,6 +90,12 @@ header.main {
 
 section.main {
   padding-top: 56px;
+
+  h2 {
+    font-weight: normal;
+    line-height: 2em;
+    margin: 20px 20px 40px;
+  }
 }
 
 #sub-menu {
