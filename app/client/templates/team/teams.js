@@ -27,7 +27,9 @@ Template.teams.events({
 Template.teams.helpers({
 
   teams: function() {
-    return Teams.find({}, {sort: {name: 1}});
+    let currentTeam = Session.get('currentTeam');
+    let findQuery = currentTeam ? {_id: {$ne: currentTeam._id}} : {};
+    return Teams.find(findQuery, {sort: {name: 1}});
   },
 
   hasTeams: function() {
