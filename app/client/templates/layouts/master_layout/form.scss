@@ -100,23 +100,30 @@ button {
   }
 }
 
+.buttons {
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  position: fixed;
+  right: 0;
+  transition: .3s;
+}
+
 .buttons .left,
 .buttons .right {
   background-color: rgba(5, 57, 96, 0.95);
   border-top: 1px solid #07182F;
-  bottom: 0;
   display: block;
+  margin: 0;
   padding: 20px;
-  position: fixed;
-  right: 0;
+  float: right;
   text-align: center;
   text-decoration: none;
   width: 50%;
 }
 .buttons .left {
   border-right: 1px solid #07182F;
-  left: 0;
-  right: auto;
+  float: left;
 }
 
 form.overlay {
@@ -135,12 +142,12 @@ form.overlay {
     top: 0;
 
     .buttons {
-      display: block;
+      bottom: 0;
     }
   }
 
   .buttons {
-    display: none;
+    bottom: -100%;
   }
 
   #close {
