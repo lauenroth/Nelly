@@ -1,18 +1,20 @@
 <template name="Team">
 
+  {{#if currentTeam}}
   <img src="/images/ic_submenu.svg" alt="Show submenu" id="sub-menu">
 
   <nav class="sub-menu">
     <ul>
       {{#if isAdmin}}
       <li><a href="#" class="edit">Edit team</a></li>
-      <li><a href="#" class="edit">Send team invite</a></li>
+      <li><a href="#" class="invite">Send team invite</a></li>
       {{/if}}
       <li><a href="#" class="leave">Leave team</a></li>
       <li><a href="#" class="create">Create team</a></li>
       <li><a href="#" class="join">Join another team</a></li>
     </ul>
   </nav>
+  {{/if}}
 
   <section class="main team">
 
@@ -50,6 +52,7 @@
 
   {{> teams}}
   {{> newTeam}}
+  {{> teamInvite}}
 
   {{setPageTitle}}
 

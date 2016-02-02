@@ -8,6 +8,10 @@ Template.Settings.events({
     $('div.change-password').fadeIn(200);
   },
 
+  'click .pic': function() {
+    $('.change-picture').addClass('show');
+  },
+
   'submit form': function(e) {
     e.preventDefault();
     let profile = {

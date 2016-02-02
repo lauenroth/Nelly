@@ -9,6 +9,8 @@ Template.newSession.events({
     let sessionName = inputField.val();
     sessionName = sessionName || (Meteor.user().profile.name.split(' ')[0]) + '\'s session';
 
+    let currentTeam = Session.get('currentTeam');
+
     let newSession = {
       name: sessionName,
       created: new Date(),
@@ -16,6 +18,11 @@ Template.newSession.events({
       participants: [],
       type: 'public',
     };
+
+    if (currentTeam) {
+      newSession.team = currentTeam._id;
+      newSession.type = 'team';
+    }
 
     if ($('#join').prop('checked')) {
       newSession.participants = [Meteor.userId()];

@@ -16,7 +16,11 @@ Template.Sessions.events({
 Template.Sessions.helpers({
 
   currentSessions: function() {
-    return Sessions.find({}, {sort: {created: -1}});
+    let currentTeam = Session.get('currentTeam');
+    if (currentTeam) {
+      return Sessions.find({team: currentTeam._id}, {sort: {created: -1}});
+    }
+    return Sessions.find({type: 'public'}, {sort: {created: -1}});
   },
 
   hasSessions: function() {

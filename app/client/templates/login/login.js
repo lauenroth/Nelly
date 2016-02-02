@@ -12,40 +12,46 @@ Template.Login.events({
 
     if ($('section.login').hasClass('sign-up')) {
 
-      button.text('Creating your account...');
-
       let name = $('#name').val();
-      let user = {
-        email: email,
-        password: password,
-        profile: {
-          name: name,
-        }
-      };
 
-      Accounts.createUser(user, function(error) {
-        button.text('Create new account');
-        if (error) {
-          errorDiv.text(error.reason).addClass('show');
-          setTimeout(function() {
-            errorDiv.removeClass('show');
-          }, 5000);
-        }
-      });
+      if (name.length === 0) {
+        error('Please set a user name.');
+        $('#name').focus()
+      }
+
+      else {
+        button.text('Creating your account...').prop('disabled', true);
+
+        let user = {
+          email: email,
+          password: password,
+          profile: {
+            name: name,
+          }
+        };
+
+        Accounts.createUser(user, function(err) {
+          if (err) {
+            error(err.reason);
+            button.text('Create new account').prop('disabled', false);
+          }
+        });
+
+      }
 
     }
 
     else {
 
-      button.text('Signing you in...');
+      button.text('Signing you in...').prop('disabled', true);
 
-      Meteor.loginWithPassword(email, password, function(error) {
-        button.text('Sign in');
-        if (error) {
-          errorDiv.text(error.reason).addClass('show');
-          setTimeout(function() {
-            errorDiv.removeClass('show');
-          }, 5000);
+      Meteor.loginWithPassword(email, password, function(err) {
+        if (err) {
+          error(err.reason);
+          button.text('Sign in').prop('disabled', false);
+        }
+        else {
+          info('Welcome back!');
         }
       });
 

@@ -94,6 +94,10 @@ button {
     margin-bottom: 0;
     position: absolute;
   }
+
+  &.danger {
+    background-color: #822;
+  }
 }
 
 .buttons .left,
@@ -129,6 +133,14 @@ form.overlay {
   &.show {
     opacity: 1;
     top: 0;
+
+    .buttons {
+      display: block;
+    }
+  }
+
+  .buttons {
+    display: none;
   }
 
   #close {
@@ -143,14 +155,9 @@ form.overlay {
     color: #fff;
     font-size: 20px;
     font-weight: normal;
-    line-height: 56px;
-    margin: 0;
+    line-height: 56px!important;
+    margin: 0!important;
     padding: 0 20px;
-  }
-
-  paper-input,
-  paper-checkbox {
-    padding: 10px;
   }
 
 }

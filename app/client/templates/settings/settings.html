@@ -3,7 +3,13 @@
 
     <form>
 
-      <h3>Your Profile</h3>
+      <header>
+        <div class="pic">
+          <img src="/images/profiles/jorg.jpg" alt="">
+        </div>
+        <h2>{{ profile.name }}</h2>
+      </header>
+
       <label for="name" class="moving">Your name</label>
       <input type="text" id="name" value="{{ profile.name }}" required>
 
@@ -29,6 +35,8 @@
       <button type="submit" class="submit">Save</button>
 
     </form>
+
+    {{> ChangePicture}}
 
   </section>
 </template>

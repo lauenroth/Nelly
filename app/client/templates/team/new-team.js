@@ -15,7 +15,7 @@ Template.newTeam.events({
       admins: [Meteor.userId()],
       members: [Meteor.userId()],
     };
-    team = Teams.insert(team);
+    team._id = Teams.insert(team);
     Accounts.users.update({_id: Meteor.userId()}, {$set: {'profile.currentTeam': team._id} });
     $('form.new-team').removeClass('show');
     $('#team-name').val('');

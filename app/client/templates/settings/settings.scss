@@ -4,6 +4,36 @@
 section.settings {
   padding: 10px;
 
+  header {
+    background-color: #053960;
+    height: 120px;
+    margin: 70px -10px 20px;
+    position: relative;
+
+    h2 {
+      padding-top: 50px;
+      text-align: center;
+    }
+  }
+
+  .pic {
+    border-radius: 100%;
+    height: 100px;
+    position: absolute;
+    top: -50px;
+    left: 37%;
+
+    img {
+      background-color: #07182F;
+      border: 4px solid #053960;
+      border-radius: 100%;
+      height: 100px;
+      margin: 0 auto;
+      padding: 4px;
+      width: 100px;
+    }
+  }
+
   #email {
     margin-bottom: 40px;
   }

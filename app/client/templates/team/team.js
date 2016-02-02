@@ -11,6 +11,14 @@ Template.Team.events({
     $('nav.sub-menu').addClass('show');
   },
 
+  'click .edit': function() {
+    error('Not implemented yet :(');
+  },
+
+  'click .invite': function() {
+    $('form.team-invite').addClass('show');
+  },
+
   'click .create': function() {
     $('form.new-team').addClass('show');
   },
@@ -62,7 +70,10 @@ Template.Team.helpers({
 
   isAdmin: function() {
     let currentTeam = Session.get('currentTeam');
-    return (currentTeam.admins.indexOf(Meteor.userId()) > -1);
+    if (currentTeam.admins) {
+      return (currentTeam.admins.indexOf(Meteor.userId()) > -1);
+    }
+    return false;
   },
 
 });
