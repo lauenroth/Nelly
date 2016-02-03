@@ -12,7 +12,7 @@ Template.Team.events({
   },
 
   'click .edit': function() {
-    error('Not implemented yet :(');
+    $('form.edit-team').addClass('show');
   },
 
   'click .invite': function() {

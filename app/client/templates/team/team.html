@@ -52,7 +52,11 @@
 
   {{> teams}}
   {{> newTeam}}
-  {{> teamInvite}}
+
+  {{#if isAdmin}}
+    {{> teamInvite}}
+    {{> editTeam}}
+  {{/if}}
 
   {{setPageTitle}}
 
