@@ -3,20 +3,6 @@
 }
 
 nav.main {
-  background-color: #999;
-  left: 0;
-  max-width: 85%;
-  position: absolute;
-  top: 0;
-  width: 250px;
-  z-index: 200;
-
-  -webkit-transform: translateX(-100%) rotateZ(360deg);
-  transform: translateX(-100%) rotateZ(360deg);
-
-  box-sizing: border-box;
-
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
@@ -27,29 +13,50 @@ nav.main {
   -webkit-flex-direction: column;
   flex-direction: column;
   height: 100%;
-  background: white;
-  border-right: 1px solid #e5e5e5;
-  overflow-x: hidden;
-  overflow-y: auto;
+  left: -250px;
+  max-width: 85%;
+  position: absolute;
+  top: 0;
+  // -webkit-transform: translateX(-100%) rotateZ(360deg);
+  // transform: translateX(-100%) rotateZ(360deg);
+  // transition: transform ease-in-out 0.3s, width ease-in-out 0.3s, visibility 0.3s;
+  width: 250px;
   will-change: transform;
+  z-index: 200;
   -webkit-overflow-scrolling: touch;
-  transition: transform ease-in-out 0.3s, width ease-in-out 0.3s, visibility 0.3s;
+
+  .menu {
+    background-color: #fff;
+    border-right: 1px solid #e5e5e5;
+    box-sizing: border-box;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
 
   .team {
     background-color: #e9f3ff;
     border-bottom: 1px solid #aaa;
     color: #000;
     overflow: hidden;
-    padding: 20px;
     word-wrap: nowrap;
 
-    a {
+    a.profile {
       display: inline-block;
       float: right;
       font-size: 12px;
       line-height: 0;
       min-height: inherit;
       padding-right: 0;
+
+      img {
+        border: 1px solid #053960;
+        border-radius: 100%;
+        height: 45px;
+        margin: 5px;
+        width: 45px;
+      }
     }
   }
 
@@ -84,19 +91,22 @@ nav.main {
     min-height: 55px;
   }
 
-  .settings {
-    bottom: 55px;
+  .logout {
     border-top: 1px solid #aaa;
+    bottom: 0;
     left: 0;
     position: fixed;
     right: 0;
   }
 
-  .logout {
+  .opener {
+    // background-color: red;
     bottom: 0;
-    left: 0;
-    position: fixed;
+    margin-right: -18px;
+    position: absolute;
     right: 0;
+    top: 0;
+    width: 18px;
   }
 
 }
@@ -111,7 +121,7 @@ nav.main {
   position: absolute;
   right: 0;
   top: 0;
-  transition: opacity ease-in-out 0.38s, visibility ease-in-out 0.38s;
+  // transition: opacity ease-in-out 0.38s, visibility ease-in-out 0.38s;
   visibility: hidden;
   z-index: 200;
 

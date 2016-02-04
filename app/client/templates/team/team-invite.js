@@ -16,7 +16,8 @@ Template.teamInvite.events({
 
   'submit form': function(e) {
     e.preventDefault();
-    error('Todo');
+    error('ToDo: send emails');
+    $('form.team-invite').removeClass('show');
   },
 
 });

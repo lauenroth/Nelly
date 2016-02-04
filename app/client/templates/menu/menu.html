@@ -3,20 +3,22 @@
   <label id="scrim" for="show-menu"></label>
 
   <nav class="main">
-    <div class="team">
-      <a href="/team"><img src="/images/ic_settings.svg" alt="Team settings"></a>
-      {{ teamName }}
-    </div>
-    <ul>
-      <!-- <li><a href="/">Dashboard</a></li> -->
-      <!-- <li><a href="/tasks">Tasks</a></li> -->
-      <!-- <li><a href="/projects">Projects</a></li> -->
-      <li><a href="/sessions">Poker planning</a></li>
-      <li><a href="/retrospective">Retrospective</a></li>
+    <div class="menu">
+      <div class="team">
+        <a href="/settings" class="profile"><img src="/images/profiles/jorg.jpg" alt=""></a>
+        <a href="/team">{{ teamName }}</a>
+      </div>
+      <ul>
+        <!-- <li><a href="/">Dashboard</a></li> -->
+        <!-- <li><a href="/tasks">Tasks</a></li> -->
+        <!-- <li><a href="/projects">Projects</a></li> -->
+        <li><a href="/sessions">Poker planning</a></li>
+        <li><a href="/retrospective">Retrospective</a></li>
 
-      <li class="settings"><a href="/settings">Settings</a></li>
-      <li class="logout"><a href="#logout">Log out</a></li>
-    </ul>
+        <li class="logout"><a href="#logout">Log out</a></li>
+      </ul>
+    </div>
+    <div class="opener"></div>
   </nav>
 
 </template>
