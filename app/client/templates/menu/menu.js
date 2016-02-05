@@ -2,17 +2,11 @@
 Template.Menu.events({
 
   'click #scrim': function() {
-    $('nav.main').animate({
-      left: '-250px',
-    }, 300);
-    $('#scrim').animate({
-      'opacity': 0,
-      'visibility': 'hidden',
-    }, 300);
+    hideMenu();
   },
 
   'click a': function() {
-    $('#show-menu').prop( 'checked', false );
+    hideMenu();
   },
 
   'click .logout': function(e) {
@@ -58,26 +52,14 @@ Template.Menu.onRendered(function () {
     }
     if (ev.isFinal) {
       if (ev.additionalEvent === 'panright') {
-        nav.animate({
-          left: '0px',
-        }, 300);
-        scrim.animate({
-          'opacity': 1,
-        }, 300);
+        showMenu();
         start = false;
         isHidden = false;
       }
       else {
-        nav.animate({
-          left: '-250px',
-        }, 300);
-        scrim.animate({
-          'opacity': 0,
-          'visibility': 'hidden',
-        }, 300);
+        hideMenu();
         start = false;
         isHidden = true;
-        scrim.css('visibility', 'hidden');
       }
     }
   });

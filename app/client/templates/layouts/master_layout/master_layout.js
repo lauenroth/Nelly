@@ -5,4 +5,7 @@ Template.MasterLayout.helpers({
 });
 
 Template.MasterLayout.events({
+  'click .show-menu': function() {
+    showMenu();
+  }
 });
