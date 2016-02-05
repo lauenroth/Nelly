@@ -2,8 +2,8 @@
 /* Retrospective: Event Handlers */
 /*****************************************************************************/
 Template.Retrospective.events({
-  'click paper-icon-button.add': function(e) {
-
+  'click .add': function() {
+    $('.retrospective-comment').addClass('show');
   }
 });
 
