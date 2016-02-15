@@ -11,6 +11,12 @@ Template.Retrospective.events({
 /* Retrospective: Helpers */
 /*****************************************************************************/
 Template.Retrospective.helpers({
+  hasComments: function() {
+    return RetrospectiveComments.find({userId: Meteor.userId()}).length;
+  },
+  comments: function() {
+    return RetrospectiveComments.find({userId: Meteor.userId()}, {$sort: {created: -1} });
+  },
 });
 
 /*****************************************************************************/

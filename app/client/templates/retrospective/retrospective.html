@@ -7,17 +7,14 @@
       <h3>How well did the sprint go?</h3>
       <paper-slider min="0" max="10" value="5" snaps pin></paper-slider>
 
-      <!-- <paper-icon-button icon="add" alt="positive"></paper-icon-button>
-      <paper-icon-button icon="remove" alt="negative"></paper-icon-button>
-      <paper-icon-button icon="description" alt="comment"></paper-icon-button> -->
-
-      <!-- <h3>What went well?</h3>
-      <textarea></textarea>
-
-      <h3>What went poorly?</h3>
-      <textarea></textarea>
-
-      <button type="submit">Save</button> -->
+      {{#if comments}}
+      <h3>Your comments</h3>
+      <ul class="list">
+        {{#each comments}}
+        <li>{{comment}}</li>
+        {{/each}}
+      </ul>
+      {{/if}}
 
       <img src="/images/ic_add.svg" alt="Add comment" class="add">
 

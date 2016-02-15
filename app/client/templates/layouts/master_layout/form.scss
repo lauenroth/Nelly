@@ -64,12 +64,22 @@ input[type="checkbox"] {
 
 input[type="text"],
 input[type="email"],
-input[type="password"] {
+input[type="password"],
+textarea {
   display: block;
   background-color: transparent;
   border: none;
   border-bottom: 1px solid #369;
   color: #fff;
+  font-size: 1em;
+  margin-bottom: 5px;
+  outline: none;
+  padding: 10px;
+  width: 100%;
+}
+textarea {
+  border: none;
+  border-bottom: 1px solid #369;
   font-size: 1em;
   margin-bottom: 5px;
   outline: none;
@@ -114,7 +124,7 @@ button {
   background-color: rgba(5, 57, 96, 0.95);
   border-top: 1px solid #07182F;
   display: block;
-  line-height: 65px;
+  line-height: 60px;
   margin: 0;
   padding: 0 20px;
   float: right;
