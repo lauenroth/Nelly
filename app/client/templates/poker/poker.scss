@@ -180,6 +180,9 @@
     transition: .5s;
     visibility: hidden;
     z-index: 20;
+    @media (min-width: 640px) {
+      margin: 20px auto;
+    }
 
     li {
       opacity: .5;

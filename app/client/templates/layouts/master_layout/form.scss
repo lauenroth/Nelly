@@ -102,7 +102,7 @@ button {
     bottom: 0;
     left: 0;
     margin-bottom: 0;
-    position: absolute;
+    position: fixed;
   }
 
   &.danger {
@@ -155,10 +155,19 @@ form.overlay {
     .buttons {
       bottom: 0;
     }
+
+    button.submit {
+      bottom: 0;
+    }
   }
 
   .buttons {
     bottom: -100%;
+  }
+
+  button.submit {
+    bottom: -100px;
+    transition: .3s;
   }
 
   #close {
