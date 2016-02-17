@@ -57,7 +57,7 @@ Template.Poker.helpers({
 
   pokerValue: function(pokerValue) {
     if (pokerValue === undefined) pokerValue = Session.get('pokerValue') || 0;
-    let pokerValues = [0, '½', 1, '1½', 2, 3, 5, 8, 13, 20, 40, 100, '∞', '?', 'break'];
+    let pokerValues = [0, '½', 1, 2, 3, 5, 8, 13, 20, 40, 100, '∞', '?', 'break'];
     // pokerValues = [0, 1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, '∞', '?', 'break'];
     return pokerValues[pokerValue];
   },
