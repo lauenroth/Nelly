@@ -31,7 +31,7 @@ Template.Menu.onRendered(function () {
   let scrim = $('#scrim')
   let start = false;
   let isHidden = true;
-  let hammertime = new Hammer($('.opener')[0]);
+  let hammertime = new Hammer(nav[0]);
 
   hammertime.on('pan', function(ev) {
     scrim.css('visibility', 'visible');
