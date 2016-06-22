@@ -20,14 +20,15 @@ Template.Poker.events({
     $('#session-info').removeClass('show');
   },
 
-  'click .card': function(e) {
-    let newEstimate = $(e.target).data('value')
-    Estimates.update({_id: Session.get('currentEstimate')}, {$set: {estimate: newEstimate} });
-  },
+  // 'click .card': function(e) {
+  //   let newEstimate = $(e.target).data('value')
+  //   Estimates.update({_id: Session.get('currentEstimate')}, {$set: {estimate: newEstimate} });
+  // },
 
   'click button.change': function() {
     $('button.change').blur();
     Estimates.update({_id: Session.get('currentEstimate')}, {$set: {estimate: '?'} });
+    $('.card.selected').removeClass('selected');
   },
 
   'click .reset': function(e) {
@@ -133,13 +134,74 @@ Template.Poker.onCreated(function () {
 
 Template.Poker.onRendered(function () {
 
-  var swiper = new Swiper('.swiper-container', {
-    slidesPerView: 'auto',
-    centeredSlides: true,
-    spaceBetween: 30,
-    pagination: '.swiper-pagination',
-    paginationClickable: true,
+  let currentCard = $('.card:first-child');
+  let start = {x: false, y: false};
+  let hammer = new Hammer($('.swiper-pagination')[0]);
+  hammer.get('pan').set({ direction: Hammer.DIRECTION_ALL, threshold: 5, velocity: 0.2 });
+  hammer.on('pan', function(ev) {
+    let cardTop = parseInt(currentCard.css('top'));
+    let top = 0;
+    if (start.x === false) {
+      start.x = ev.deltaX;
+      start.y = ev.deltaY;
+    }
+    else {
+      let delta = ev.deltaY - start.y;
+      top = (cardTop + delta) > 0 ? 0 : cardTop + delta;
+      console.log(top);
+      currentCard.css('top', top);
+      // console.log(ev.velocityY);
+    }
+    if (ev.isLast) {
+      start.x = false;
+      start.y = false;
+      console.log('final', top);
+      if (top <= -200) {
+        currentCard.animate({
+          top: -400,
+        }, 200);
+      }
+    }
+
   });
+
+  // $('.card').each(function(index, card) {
+    // Hammer.Pan({direction: 'DIRECTION_VERTICAL'});
+
+    // hammer.get('pan').set({ direction: Hammer.DIRECTION_ALL });
+    // hammer.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
+    // hammer.on('swipeup', function(ev) {
+    //
+    //   let $card = $(card);
+    //   $card.addClass('selected');
+    //   Estimates.update({_id: Session.get('currentEstimate')}, {$set: {estimate: $card.data('value')} });
+    // });
+  // });
+
+  // var swiper = new Swiper('.swiper-container', {
+  //   slidesPerView: 'auto',
+  //   centeredSlides: true,
+  //   spaceBetween: 30,
+  //   pagination: '.swiper-pagination',
+  //   paginationClickable: true,
+  // });
+//
+//   setTimeout(function() {
+//
+//   let mc = new Hammer.Manager($('.card')[0], {
+//     recoginzers: [
+//       [Hammer.Swipe, { direction: Hammer.DIRECTION_VERTICAL}],
+//     ]
+//   });
+//
+//   let hammertime = new Hammer($('.card')[0]);
+//
+//   hammertime.on('swipe', function(ev) {
+//     console.log(ev);
+//   });
+//
+//
+// }, 1000);
 
 });
 

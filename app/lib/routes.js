@@ -13,15 +13,13 @@ Router.route('/', {
   }
 });
 
-Router.route('tasks');
-Router.route('projects');
+// Router.route('tasks');
+// Router.route('projects');
 Router.route('sessions');
-// Router.route('poker');
-
+Router.route('sprint');
 Router.route('retrospective');
 
 Router.route('team');
-
 Router.route('settings');
 
 Router.route('poker/:id', {
